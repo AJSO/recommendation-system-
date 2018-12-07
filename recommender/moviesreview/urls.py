@@ -11,4 +11,5 @@ urlpatterns = [
     path('Movie/<int:pk>/add_review/',views.add_review,name='add_review'),
     path('accounts/logout/',views.logout_view,name='logout_view'),
     path('accounts/register/',views.SignUp.as_view(),name='signup'),
+    path('recommendation/',views.get_suggestions,name='get_suggestions'),
 ]

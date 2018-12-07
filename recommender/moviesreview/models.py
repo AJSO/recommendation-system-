@@ -7,8 +7,8 @@ class Movie(models.Model):
     title= models.CharField(max_length=200)
 
     def average_rating(self):
-        return self.review_set.aggregate(Avg('rating'))['rating_avg']
-    def _str_(self):
+        return self.review_set.aggregate(Avg('rating'))['rating__avg']
+    def __str__(self):
         return self.title
 
 class Review(models.Model):

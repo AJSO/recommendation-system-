@@ -14,6 +14,13 @@ from django.shortcuts import redirect
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
 
+from django.contrib.auth.models import User
+
+import pandas as pd
+import numpy as np
+import scipy as sp
+from sklearn.neighbors import NearestNeighbors
+
 
 def review_list(request):
     latest_review_list=Review.objects.order_by('-pub_date')[:9]
@@ -54,4 +61,8 @@ class SignUp(generic.CreateView):
     form_class=UserCreationForm
     template_name='registration/signup.html'
     success_url=reverse_lazy('login')
+
+def get_suggestions(request):
+    return render(request,'get_suggestions.html',{'username':request.user.username})
+
 
